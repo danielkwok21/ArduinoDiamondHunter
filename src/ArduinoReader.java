@@ -106,21 +106,20 @@ public class ArduinoReader implements SerialPortEventListener {
 	/**
 	 * Handle an event on the serial port. Read the data and print it.
 	 */
+	
 	String inputLine;
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
 		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 			try {
 				inputLine=input.readLine();
 				getInputLine();
-				//System.out.println(inputLine);
 			} catch (Exception e) {
 				System.err.println(e.toString());
 			}
 		}
-		// Ignore all the other eventTypes, but you should consider the other ones.
 	}
 	
-	public String getInputLine() {
-		return inputLine;
+	public void getInputLine() {
+		System.out.println(inputLine);
 	}
 }
